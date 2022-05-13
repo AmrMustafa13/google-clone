@@ -5,15 +5,18 @@
 }
 
 .app {
-  background-color: #dcdde1;
   height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
 .nav-bar {
   display: flex;
   justify-content: space-between;
-  padding: 36px;
+  padding: 16px 36px;
   align-items: center;
+  background-color: #b71540;
 }
 
 .nav-bar .logo {
@@ -22,4 +25,74 @@
 
 .nav-bar .logo img {
   width: 100%;
+}
+
+.nav-bar .search input {
+  border: none;
+  padding: 8px 4px;
+  border-radius: 4px;
+  font-size: large;
+}
+
+.nav-bar .search input:focus {
+  outline: 0;
+}
+
+.nav-bar .theme-control button {
+  padding: 8px;
+  border-radius: 4px;
+  font-size: large;
+  border: none;
+  cursor: pointer;
+}
+
+.navigators {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f6b93b;
+}
+
+.navigators a {
+  margin: 8px;
+}
+
+.navigators a.active {
+  color: green;
+}
+
+.search-res {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px;
+}
+
+.search-result-box {
+  background-color: #f6b93b;
+  width: 500px;
+  padding: 24px 10px;
+  min-height: 120px;
+  flex-grow: 1;
+}
+
+.res-title {
+  display: block;
+  margin-bottom: 8px;
+  font-size: larger;
+}
+
+.res-link {
+  color: gray;
+  pointer-events: none;
+  text-decoration: none;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #b71540;
+  padding: 24px;
+  color: white;
 }

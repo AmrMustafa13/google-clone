@@ -1,19 +1,21 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import { useResultsContext } from '../context/results-context'
+import { useDebounce } from 'use-debounce'
 
 const Search = () => {
 
-    const [searchText, setSearchText] = useState('')
+    const { searchTerm, setSearchTerm } = useResultsContext()
+    const [searchText, setSearchText] = useState(searchTerm)
+    const [debouncedText] = useDebounce(searchText, 500)
 
-    const baseUrl = `https://google-search3.p.rapidapi.com/api/v1`
-
-    const handleSearchInput = (e) => {
-        setSearchText(e.target.value)
-    }
+    useEffect(() => {
+        if (debouncedText) setSearchTerm(debouncedText)
+    }, [debouncedText, setSearchTerm])
 
     return (
         <div className='search'>
-            <input type='text' value={searchText} onChange={handleSearchInput} />
+            <input type='text' value={searchText} onChange={(e) => setSearchText(e.target.value)} />
         </div>
     )
 }
